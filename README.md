@@ -92,7 +92,7 @@ make all
 | `-l` / `--local` | IP address untuk endpoint lokal | 10.0.0.1 |
 | `-p` / `--peer` | IP address untuk endpoint peer | 10.0.0.2 |
 | `-r` / `--port` | UDP port untuk tunneling | 5000 |
-| `-e` / `--endpoint` | Endpoint ID (0 or 1, for simulation mode) | 0 |
+| `-e` / `--endpoint` | Endpoint ID (0 or 1, pada mode simulasi) | 0 |
 
 ### Setup and Execution
 
