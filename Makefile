@@ -9,7 +9,7 @@ BIN_DIR = $(BUILD_DIR)/bin
 SRC_DIR = src
 INC_DIR = include
 
-SOURCES = $(SRC_DIR)/vpn.c $(SRC_DIR)/tunnel.c $(SRC_DIR)/crypto.c
+SOURCES = $(SRC_DIR)/vpn.c $(SRC_DIR)/crypto.c
 OBJECTS = $(patsubst $(SRC_DIR)/%.c, $(OBJ_DIR)/%.o, $(SOURCES))
 TARGET = $(BIN_DIR)/vpn
 
