@@ -23,23 +23,16 @@ typedef struct {
     unsigned char key[KEY_SIZE];
 } vpn_ctx_t;
 
-/* Function prototypes */
-int tun_alloc(const char *dev);
-int tun_set_ip(int fd, const char *ip);
-int tun_read(int fd, unsigned char *buf, int len);
-int tun_write(int fd, const unsigned char *buf, int len);
-void tun_close(int fd);
+int tunAlloc(const char *dev);
+int tunSetIP(int fd, const char *ip);
+int tunRead(int fd, unsigned char *buf, int len);
+int tunWrite(int fd, const unsigned char *buf, int len);
+void tunClose(int fd);
 
-void generate_psk(unsigned char *key, size_t klen);
-int encrypt_packet(unsigned char *key, unsigned char *iv,
-                   unsigned char *plaintext, size_t plaintext_len,
-                   unsigned char *ciphertext, unsigned char *tag);
-int decrypt_packet(unsigned char *key, unsigned char *iv,
-                   unsigned char *ciphertext, size_t ciphertext_len,
-                   unsigned char *tag, unsigned char *plaintext);
-int encrypt_for_udp(unsigned char *key, unsigned char *packet,
-                    size_t pkt_len, unsigned char *output, size_t output_max);
-int decrypt_from_udp(unsigned char *key, unsigned char *input,
-                     size_t input_len, unsigned char *output, size_t output_max);
+void generatePSK(unsigned char *key, size_t klen);
+int encryptPacket(unsigned char *key, unsigned char *iv, unsigned char *plaintext, size_t plaintext_len, unsigned char *ciphertext, unsigned char *tag);
+int decryptPacket(unsigned char *key, unsigned char *iv, unsigned char *ciphertext, size_t ciphertext_len, unsigned char *tag, unsigned char *plaintext);
+int encryptForUDP(unsigned char *key, unsigned char *packet, size_t pkt_len, unsigned char *output, size_t output_max);
+int decryptFromUDP(unsigned char *key, unsigned char *input, size_t input_len, unsigned char *output, size_t output_max);
 
 #endif
