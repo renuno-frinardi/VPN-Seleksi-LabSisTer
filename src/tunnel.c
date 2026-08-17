@@ -8,7 +8,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int tun_alloc(const char *dev) {
+// Alokasi TUN device
+int tunAlloc(const char *dev) {
     struct ifreq ifr;
     int fd, err;
 
@@ -31,7 +32,8 @@ int tun_alloc(const char *dev) {
     return fd;
 }
 
-int tun_set_ip(int fd, const char *ip) {
+// Mengatur IP TUN device
+int tunSetIP(int fd, const char *ip) {
     char cmd[256];
     snprintf(cmd, sizeof(cmd), "ip addr add %s/24 dev %s", ip, TUN_DEV);
     system(cmd);
@@ -40,14 +42,17 @@ int tun_set_ip(int fd, const char *ip) {
     return 0;
 }
 
-int tun_read(int fd, unsigned char *buf, int len) {
+// Membaca data dari TUN device
+int tunRead(int fd, unsigned char *buf, int len) {
     return read(fd, buf, len);
 }
 
-int tun_write(int fd, const unsigned char *buf, int len) {
+// Menulis data ke TUN device
+int tunWrite(int fd, const unsigned char *buf, int len) {
     return write(fd, buf, len);
 }
 
-void tun_close(int fd) {
+// Menutup TUN device
+void tunClose(int fd) {
     close(fd);
 }
