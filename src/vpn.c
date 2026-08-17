@@ -180,6 +180,11 @@ int mainSimulation(int my_endpoint, const char *local_ip, const char *peer_ip, u
         /* Coba otomatis konfigurasi TUN */
         if (autoConfigTUN(local_ip) == 0) {
             printf("Mode TUN real aktif.\n");
+            char stop;
+            while (stop != 'q') {
+                printf("Enter 'q' to quit: ");
+                scanf(" %c", &stop);
+            }
             tunClose(tun_fd);
             return 0;
         }
